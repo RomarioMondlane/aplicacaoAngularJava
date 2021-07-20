@@ -12,10 +12,8 @@ export class VenderComponent implements OnInit {
 
   public produto:any;
 prod:Venda={
-  codigo:90,
-  quantidade:10
-
-
+  codigo:0,
+  quantidade:0
 }
 
 
@@ -23,7 +21,7 @@ prod:Venda={
   public vende:any;
   public quantidade:any;
   url="http://localhost:7979/listar";
-  constructor(private http:HttpClient, private serv:UserService) { 
+  constructor(private http:HttpClient,private userservice: UserService) { 
 
 
   }
@@ -35,7 +33,6 @@ prod:Venda={
     this.http.get(this.url,{headers}).subscribe(data=>{
       console.log(data);
       this.produto=data;
-      //const EXAMPLE_DATA: Patrimonio[]=data[0];
       
 
     })
@@ -47,17 +44,13 @@ prod:Venda={
   }
 vender():void{
 
-  console.log(this.prod);
+  //console.log(this.prod);
   const headers = new HttpHeaders({Authorization:'Basic ' + btoa("r.monjane"+":"+"1234")}) ;
   
 
     this.http.post("http://localhost:7979/compra",this.prod,{headers}).subscribe(data=>{
       console.log(data);
-      this.serv.showMessage("Vendido");
-      
-      //const EXAMPLE_DATA: Patrimonio[]=data[0];
-      
-
+      this.userservice.showMessage("Vendido");
     })
 
 
