@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     console.log(this.user);
     this.http.get<Observable<boolean>>(this.url,{headers, responseType: 'text' as 'json'}).subscribe(data=>{
      this.userservice.showMessage("Logado");
+     this.rota.navigate(["vender"]);
      console.log(data);
     }
 );}
