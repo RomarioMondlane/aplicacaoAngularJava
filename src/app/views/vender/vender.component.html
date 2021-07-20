@@ -1,0 +1,34 @@
+
+<mat-card routerLink="vender">
+    <mat-card-title>Vender </mat-card-title>
+    <form>
+        <mat-form-field>
+        <mat-select placeholder="Selecione o produto" >
+            
+            
+            <mat-option *ngFor="let prod of produto"  name="codigo"
+             [(ngModel)]="prod.codigo" [value]="prod.codigo">{{prod.nome}}</mat-option>
+            
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="insira a quantidade" [(ngModel)]="prod.quantidade" name="quantidade" required>
+            
+
+        </mat-form-field>
+    </form>
+    
+    <mat-card-content>
+
+
+        <button  mat-raised-button (click)="vender()" color="primary" >Vender</button> 
+
+
+
+
+    </mat-card-content>
+
+
+</mat-card>
+
+

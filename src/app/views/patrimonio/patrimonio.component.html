@@ -1,0 +1,24 @@
+
+<mat-card routerLink="patrimonio">
+    <mat-card-title>Fundos </mat-card-title>
+    <mat-card-subtitle>
+        <li *ngFor="let patrimonio of pp">
+      <h4>Valor Vendido</h4>  <p>{{ patrimonio.valorAcomulado |currency: 'MZN'}}</p>
+      <h4>Valor Injectado</h4> <p>{{ patrimonio.valorDepostidado |currency: 'MZN'}}</p>
+            </li>
+    </mat-card-subtitle>
+    
+    
+    <mat-card-content>
+
+
+        <button  mat-raised-button (click)="imprimir()" color="primary" >Imprimir</button> 
+
+
+
+
+    </mat-card-content>
+
+
+</mat-card>
+

@@ -1,0 +1,18 @@
+.sidenav{
+
+    width: 200px;
+    background-color: seagreen;
+    
+}
+
+.sidenav a{
+
+    color: seashell;
+}
+
+.content{
+
+
+    padding: 16px;;
+    
+}

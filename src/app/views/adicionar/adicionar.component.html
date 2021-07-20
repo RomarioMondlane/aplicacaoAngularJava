@@ -1,0 +1,32 @@
+<mat-card routerLink="adicionar">
+    <mat-card-title>Adicionar produto </mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-form-field>
+                <input matInput placeholder="nome do produto" [(ngModel)]="produto.nome" name="nome" required>
+                
+
+            </mat-form-field>
+            
+            <mat-form-field>
+                <input matInput placeholder="preco do produto"   [(ngModel)]="produto.preco" name="preco"  required>
+
+
+            </mat-form-field>
+            
+            <mat-form-field>
+                <input matInput placeholder="quantidade do produto"   [(ngModel)]="produto.quantidade" name="quantidade"  required>
+
+
+            </mat-form-field>
+        </form>
+        
+        <button  mat-raised-button (click)="Adicionar()" color="primary" >Adicionar</button> 
+
+
+
+
+    </mat-card-content>
+
+
+</mat-card>
