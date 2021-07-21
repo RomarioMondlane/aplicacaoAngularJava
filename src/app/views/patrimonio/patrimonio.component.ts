@@ -18,7 +18,7 @@ public  pp:any;
 
   ngOnInit(): void {
   
-    const headers = new HttpHeaders({Authorization:'Basic ' + btoa("r.monjane"+":"+"1234")}) ;
+    const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
   
 
     this.http.get(this.url,{headers}).subscribe(data=>{

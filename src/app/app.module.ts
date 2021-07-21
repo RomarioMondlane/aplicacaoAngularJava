@@ -66,7 +66,8 @@ import { ProdutoComponent } from './views/produtos/produto/produto.component'
     MatSortModule,
     MatSelectModule,
     CommonModule,
-    MatIconModule
+    MatIconModule,
+   
     
     
   ],

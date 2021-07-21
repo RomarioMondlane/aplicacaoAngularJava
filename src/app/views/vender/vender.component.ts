@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpClientModule,HttpHeaders} from '@angular/common/http';
 import {Venda} from 'src/app/venda.model'
 import { UserService } from 'src/app/componentes/user.service';
+import { LoginComponent} from'src/app/views/login/login.component'
+
+
 
 @Component({
   selector: 'app-vender',
@@ -27,7 +30,8 @@ prod:Venda={
   }
 
   ngOnInit(): void {
-    const headers = new HttpHeaders({Authorization:'Basic ' + btoa("r.monjane"+":"+"1234")}) ;
+   console.log(sessionStorage.getItem('token'));
+    const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
   
 
     this.http.get(this.url,{headers}).subscribe(data=>{
@@ -48,7 +52,7 @@ vender():void{
   const headers = new HttpHeaders({Authorization:'Basic ' + btoa("r.monjane"+":"+"1234")}) ;
   
 
-    this.http.post("http://localhost:7979/compra",this.prod,{headers}).subscribe(data=>{
+    this.http.post("http://localhost:7979/compra",this.prod,{headers, responseType: 'text' as 'json'}).subscribe(data=>{
       console.log(data);
       this.userservice.showMessage("Vendido");
     })

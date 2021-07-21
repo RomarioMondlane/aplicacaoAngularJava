@@ -28,7 +28,7 @@ url="http://localhost:7979/salvar";
 
   Adicionar():void{
     
-    const headers = new HttpHeaders({Authorization:'Basic ' + btoa("r.monjane"+":"+"1234")}) ;
+    const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
   
 
     this.http.post(this.url,this.produto,{headers}).subscribe(data=>{
