@@ -40,10 +40,10 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('nome',this.user.username);
       this.sessao=window.sessionStorage.getItem('token');
       console.log(this.sessao);
-           this.userservice.showMessage("Logado");
+           this.userservice.showMessage("Sessão iniciada com sucesso!");
            this.rota.navigate(["vender"]);
            }else{
-            this.userservice.showMessage("Autenticacao falhou");
+            this.userservice.showMessage("Inicio de Sessão  falhou");
            
 
           }

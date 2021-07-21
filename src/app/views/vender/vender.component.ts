@@ -49,12 +49,11 @@ prod:Venda={
 vender():void{
 
   //console.log(this.prod);
-  const headers = new HttpHeaders({Authorization:'Basic ' + btoa("r.monjane"+":"+"1234")}) ;
+  const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
   
 
     this.http.post("http://localhost:7979/compra",this.prod,{headers, responseType: 'text' as 'json'}).subscribe(data=>{
-      console.log(data);
-      this.userservice.showMessage("Vendido");
+      this.userservice.showMessage(JSON.stringify(data));
     })
 
 

@@ -31,9 +31,9 @@ url="http://localhost:7979/salvar";
     const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
   
 
-    this.http.post(this.url,this.produto,{headers}).subscribe(data=>{
-      console.log(data);
-      this.serv.showMessage("Adicionado");
+    this.http.post(this.url,this.produto,{headers, responseType: 'text' as 'json'}).subscribe(data=>{
+      
+      this.serv.showMessage(JSON.stringify(data));
       
      
       
