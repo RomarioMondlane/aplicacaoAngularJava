@@ -5,6 +5,7 @@ import { MatTable } from '@angular/material/table';
 import { Produto } from 'src/app/componentes/produto.model';
 import { ProdutoDataSource, } from './produto-datasource';
 import {HttpClient, HttpClientModule,HttpHeaders} from '@angular/common/http';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-produto',
@@ -21,11 +22,17 @@ export class ProdutoComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['Nome', 'Preco','Quantidade'];
   produto:any;
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,private r:Router) {
     //this.dataSource = new ProdutoDataSource();
   }
 
   ngAfterViewInit(): void {
+
+    
+    if(sessionStorage.getItem('token')===''){
+      this.r.navigate(['/']);
+    }else{
+
     const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
   
 
@@ -44,5 +51,5 @@ export class ProdutoComponent implements AfterViewInit {
     })
     
     
-  }
+    }  }
 }

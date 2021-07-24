@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserService } from 'src/app/componentes/user.service';
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,17 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
  
   username:any;
-  constructor() { }
+  constructor(private userr:UserService,private rota:Router) { }
 
   ngOnInit(): void {
-  if(sessionStorage.getItem('nome') !=null)
-  {
-    this.username=sessionStorage.getItem('nome');
- console.log(this.username);
-  }else{
+  if(sessionStorage.getItem('nome') ==='')
+  { 
     this.username="Iniciar Sessao";
-    console.log(this.username);
+  }else{
+    this.username=sessionStorage.getItem('nome');
+ 
   }
+  }
+
+  terminar(): void{
+    sessionStorage.setItem('token','');
+    sessionStorage.setItem('nome','');
+    this.userr.showMessage("Sessão terminada com sucesso!");
+    this.rota.navigate(['/']);
   }
 
 }

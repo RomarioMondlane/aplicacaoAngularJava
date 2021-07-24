@@ -6,6 +6,7 @@ import {PatrimonioComponent} from './views/patrimonio/patrimonio.component'
 import {AdicionarComponent} from './views/adicionar/adicionar.component'
 import {VenderComponent} from './views/vender/vender.component'
 import {ProdutoComponent} from'./views/produtos/produto/produto.component'
+import {CriarUserComponent} from './views/criar-user/criar-user.component'
 
 
 
@@ -28,6 +29,12 @@ component: LoginComponent
   
   path:"listar",
   component: ProdutoComponent
+},
+{
+  
+  path:"criar",
+  component: 
+  CriarUserComponent
 }
 ];
 

@@ -6,7 +6,12 @@
         
      
     </span>
-    <a class="nome">{{username}}</a> 
+    <mat-menu #appMenu="matMenu">
+        <button mat-menu-item (click)="terminar()">Terminar Sessão </button>
+
+    </mat-menu>
+    <button mat-flat-button [matMenuTriggerFor]="appMenu" class="nome" >{{username}}</button>
+    
 
 
 </mat-toolbar>

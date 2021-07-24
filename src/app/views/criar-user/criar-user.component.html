@@ -1,0 +1,87 @@
+<mat-card >
+    <mat-card-title>Criar Usuario </mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-form-field>
+                <input matInput placeholder="nome " [(ngModel)]="user.nome" name="nome" required>
+                
+
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="nome do Usuario" [(ngModel)]="user.username" name="nome" required>
+                
+
+            </mat-form-field>
+            <mat-form-field>
+                
+            <mat-select placeholder="definir tipo" name="isadmin" [(ngModel)]="user.isadmin" >
+            
+            
+                <mat-option    
+             [value]="true" name="isadmin" >Administrador</mat-option>
+                
+             <mat-option    name="isadmin"
+             [value]="false" >Usuario</mat-option>
+                
+            </mat-select>
+
+            </mat-form-field>
+            
+            <mat-form-field>
+    
+                <input matInput placeholder="password"   [(ngModel)]="user.password" name="password"  required>
+            </mat-form-field>
+            
+            <mat-form-field>
+                <input matInput placeholder="confirmar password"   name="confirmarpassword"  required>
+
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="password" placeholder="confirmar password"   name="confirmarpassword"  required>
+           
+            </mat-form-field>
+           
+        </form>
+        
+
+            <input mat-raised-button type="file" (change)="selectFile($event)" />
+              
+            
+          <div *ngIf="currentFile" >
+            
+            <mat-progress-bar mode="buffer" color="warn" value="40" >
+          
+
+           </mat-progress-bar>
+          
+          </div>
+          
+          <mat-error *ngIf="message" >{{ message }}</mat-error>
+
+          <div class="card mt-3">
+            <ul
+              class="list-group list-group-flush"
+              *ngFor="let file of fileInfos | async"
+            >
+              <li class="list-group-item">
+                <a href="{{ file.url }}">{{ file.name }}</a>
+              </li>
+            </ul>
+          </div>
+          <button mat-raised-button [disabled]="!selectedFiles" (click)="upload()">
+            Carregar imagem
+          </button>
+        <button  mat-raised-button (click)="Criar()" color="primary" >Criar</button> 
+
+
+
+
+
+
+
+
+    </mat-card-content>
+
+
+</mat-card>
+

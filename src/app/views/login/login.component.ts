@@ -31,26 +31,30 @@ export class LoginComponent implements OnInit {
   }
 
   iniciar():void{
-    const headers = new HttpHeaders({Authorization:'Basic ' + btoa(this.user.username+":"+this.user.password)}) ;
     
-    console.log(this.user);
-    this.http.get<Observable<boolean>>(this.url,{headers, responseType: 'text' as 'json'}).subscribe(isValid=>{
-     if(isValid){   
-      sessionStorage.setItem('token', btoa(this.user.username +':'+this.user.password));
-      sessionStorage.setItem('nome',this.user.username);
-      this.sessao=window.sessionStorage.getItem('token');
-      console.log(this.sessao);
-           this.userservice.showMessage("Sessão iniciada com sucesso!");
-           this.rota.navigate(["vender"]);
-           }else{
-            this.userservice.showMessage("Inicio de Sessão  falhou");
-           
-
-          }
-
+    if(sessionStorage.getItem('token')===''){
+ 
+      const headers = new HttpHeaders({Authorization:'Basic ' + btoa(this.user.username+":"+this.user.password)}) ;
+     this.http.get<Observable<boolean>>(this.url,{headers, responseType: 'text' as 'json'}).subscribe(isValid=>{
+       if(isValid){   
+        sessionStorage.setItem('token', btoa(this.user.username +':'+this.user.password));
+        sessionStorage.setItem('nome',this.user.username);
+        this.sessao=window.sessionStorage.getItem('token');
+            this.userservice.showMessage("Sessão iniciada com sucesso!");
+            this.rota.navigate(["vender"]);
+            }else{
+              this.userservice.showMessage("Inicio de Sessão  falhou");
+             }
+      }
+   );
+    }
+    else{
+      this.userservice.showMessage("Para iniciar nova sessão termine a atual");
+            
 
     }
-);}
+   
+   }
 
 getUser():void{
 

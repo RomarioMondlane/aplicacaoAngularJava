@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpClientModule,HttpHeaders} from '@angular/common/http';
 import {Venda} from 'src/app/venda.model'
 import { UserService } from 'src/app/componentes/user.service';
-import { LoginComponent} from'src/app/views/login/login.component'
-
+import { Router} from '@angular/router';
 
 
 @Component({
@@ -24,31 +23,31 @@ prod:Venda={
   public vende:any;
   public quantidade:any;
   url="http://localhost:7979/listar";
-  constructor(private http:HttpClient,private userservice: UserService) { 
+  constructor(private http:HttpClient,private r:Router,private userservice: UserService) { 
 
 
   }
 
   ngOnInit(): void {
-   console.log(sessionStorage.getItem('token'));
-    const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
-  
-
-    this.http.get(this.url,{headers}).subscribe(data=>{
-      console.log(data);
-      this.produto=data;
-      
-
-    })
-
-
+    if(sessionStorage.getItem('token')===''){
+      this.r.navigate(['/']);
+    }else{
+     const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
+     this.http.get(this.url,{headers}).subscribe(data=>{
+       console.log(data);
+       this.produto=data;
+       
+ 
+     })
+ 
+ 
+    }
 
 
 
   }
 vender():void{
 
-  //console.log(this.prod);
   const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
   
 

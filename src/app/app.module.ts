@@ -31,7 +31,9 @@ import { VenderComponent } from './views/vender/vender.component';
 import {MatSelectModule} from'@angular/material/select'
 import {CommonModule} from '@angular/common';
 import { ProdutoComponent } from './views/produtos/produto/produto.component'
-
+import {MatMenuModule} from'@angular/material/menu';
+import { CriarUserComponent } from './views/criar-user/criar-user.component'
+import {MatProgressBarModule}from '@angular/material/progress-bar'
 
  @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { ProdutoComponent } from './views/produtos/produto/produto.component'
     PatrimonioComponent,
     VenderComponent,
     ProdutoComponent,
+    CriarUserComponent,
  ],
   imports: [
     BrowserModule,
@@ -67,6 +70,8 @@ import { ProdutoComponent } from './views/produtos/produto/produto.component'
     MatSelectModule,
     CommonModule,
     MatIconModule,
+    MatMenuModule,
+    MatProgressBarModule
    
     
     

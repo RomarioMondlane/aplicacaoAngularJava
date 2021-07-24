@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpClientModule,HttpHeaders} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,11 +13,13 @@ export class PatrimonioComponent implements OnInit {
 public  pp:any;
 
   url="http://localhost:7979/patrimonio";
-  constructor(private http:HttpClient) {
+  constructor(private r:Router,private http:HttpClient) {
 
    }
-
-  ngOnInit(): void {
+ ngOnInit(): void {
+      if(sessionStorage.getItem('token')===''){
+        this.r.navigate(['/']);
+      }else{
   
     const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
   
@@ -24,11 +27,10 @@ public  pp:any;
     this.http.get(this.url,{headers}).subscribe(data=>{
       
       this.pp=data;
-      //const EXAMPLE_DATA: Patrimonio[]=data[0];
       
 
     })
-
+  }
 
 
   

@@ -7,6 +7,17 @@
                 
 
             </mat-form-field>
+            <mat-form-field>
+                
+            <mat-select placeholder="categoria do produto" name="categoria" [(ngModel)]="produto.categoria" >
+            
+            
+                <mat-option *ngFor="let pr of categoriaDados"   name="categoria"
+             [value]="pr" >{{pr}}</mat-option>
+                
+            </mat-select>
+
+            </mat-form-field>
             
             <mat-form-field>
                 <input matInput placeholder="preco do produto"   [(ngModel)]="produto.preco" name="preco"  required>
