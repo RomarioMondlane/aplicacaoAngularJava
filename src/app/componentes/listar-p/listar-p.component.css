@@ -1,0 +1,36 @@
+.mat-card{
+      margin-bottom: 30px;
+    width: 250px;
+        
+}
+
+
+.divOrganizacao{
+    display: flex;
+    flex-direction: column;
+
+}
+.separar{
+
+    margin-left: 15px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.divmae{
+    display:grid;
+    gap: 50px;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+
+
+}
+
+.mat-card-content{
+    display: flex;
+    justify-content: center;
+
+
+}

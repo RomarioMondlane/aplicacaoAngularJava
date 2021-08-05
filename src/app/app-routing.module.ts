@@ -7,6 +7,7 @@ import {AdicionarComponent} from './views/adicionar/adicionar.component'
 import {VenderComponent} from './views/vender/vender.component'
 import {ProdutoComponent} from'./views/produtos/produto/produto.component'
 import {CriarUserComponent} from './views/criar-user/criar-user.component'
+import {ListarPComponent } from './componentes/listar-p/listar-p.component'
 
 
 
@@ -29,13 +30,19 @@ component: LoginComponent
   
   path:"listar",
   component: ProdutoComponent
-},
+}, 
 {
   
   path:"criar",
   component: 
   CriarUserComponent
+},{
+  
+  path:"carregar",
+  component: 
+  ListarPComponent
 }
+
 ];
 
 @NgModule({

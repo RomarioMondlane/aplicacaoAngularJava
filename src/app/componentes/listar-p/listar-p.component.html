@@ -1,0 +1,23 @@
+<div class="divmae">
+<div *ngFor="let user of dadosUser" class="divOrganizacao">
+    <mat-card class="mat-card" >
+        <mat-card-title>{{user.nome}} </mat-card-title>
+        <mat-card-subtitle>{{user.username}} </mat-card-subtitle>
+        
+        <mat-card-content class="mat-card-content">
+            <img src='data:image/png;base64,{{user.picByte}}' width="100" height="100">
+            
+    
+
+        </mat-card-content>
+    <div class="buttons">
+        <button  mat-raised-button  color="warn" >Apagar</button> 
+        <button  mat-raised-button  color="basic" (click)="Permissoes()" class="separar">Permissoes</button> 
+
+    </div>
+        
+    </mat-card>
+    
+    
+</div>
+</div>

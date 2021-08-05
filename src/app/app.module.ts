@@ -33,7 +33,8 @@ import {CommonModule} from '@angular/common';
 import { ProdutoComponent } from './views/produtos/produto/produto.component'
 import {MatMenuModule} from'@angular/material/menu';
 import { CriarUserComponent } from './views/criar-user/criar-user.component'
-import {MatProgressBarModule}from '@angular/material/progress-bar'
+import {MatProgressBarModule}from '@angular/material/progress-bar';
+import { ListarPComponent } from './componentes/listar-p/listar-p.component'
 
  @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {MatProgressBarModule}from '@angular/material/progress-bar'
     VenderComponent,
     ProdutoComponent,
     CriarUserComponent,
+    ListarPComponent,
  ],
   imports: [
     BrowserModule,

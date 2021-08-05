@@ -1,6 +1,9 @@
 <mat-sidenav-container class="container">
     <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true"fixedTopGap="64">
         <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="criar">
+                Criar Usuario
+            </a>
             <a mat-list-item routerLink="adicionar">
               Adicionar produto  
             
@@ -13,10 +16,16 @@
             
                 Vender  
             </a>
-            <a routerLink="patrimonio">
+            <a mat-list-item routerLink="patrimonio">
             
                     Patrimonio  
               </a>
+            
+              <a mat-list-item routerLink="carregar">
+           
+                Listar Usuarios
+          </a>
+                 
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="content">

@@ -1,4 +1,4 @@
-<mat-toolbar class="header mat-elevation-z4">
+<mat-toolbar class="header mat-elevation-z8">
     <span class="title-group">
         <a>
             Mercearia
@@ -10,7 +10,13 @@
         <button mat-menu-item (click)="terminar()">Terminar Sessão </button>
 
     </mat-menu>
-    <button mat-flat-button [matMenuTriggerFor]="appMenu" class="nome" >{{username}}</button>
+
+
+    <button mat-flat-button [matMenuTriggerFor]="appMenu" class="nome" >
+        
+        <img [src]="retrievedImage" width="30" height="30">{{username}}</button> 
+
+        
     
 
 

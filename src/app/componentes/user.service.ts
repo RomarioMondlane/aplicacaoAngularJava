@@ -18,7 +18,7 @@ export class UserService {
     console.log(msg);
     this.snack.open(msg,' ',{
       duration:2000,
-      horizontalPosition:"center",
+      horizontalPosition:"end",
       verticalPosition:"top"
 
     })
