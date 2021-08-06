@@ -34,8 +34,12 @@ import { ProdutoComponent } from './views/produtos/produto/produto.component'
 import {MatMenuModule} from'@angular/material/menu';
 import { CriarUserComponent } from './views/criar-user/criar-user.component'
 import {MatProgressBarModule}from '@angular/material/progress-bar';
-import { ListarPComponent } from './componentes/listar-p/listar-p.component'
-
+import { ListarPComponent } from './componentes/listar-p/listar-p.component';
+import { DialogoComponent } from './componentes/dialogo/dialogo.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ListaProdutosComponent } from './componentes/lista-produtos/lista-produtos.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DescricaoComponent } from './componentes/descricao/descricao.component'
  @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +55,10 @@ import { ListarPComponent } from './componentes/listar-p/listar-p.component'
     ProdutoComponent,
     CriarUserComponent,
     ListarPComponent,
- ],
+    ListaProdutosComponent,
+    DescricaoComponent,
+    
+ ],entryComponents:[DialogoComponent,DescricaoComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -73,8 +80,9 @@ import { ListarPComponent } from './componentes/listar-p/listar-p.component'
     CommonModule,
     MatIconModule,
     MatMenuModule,
-    MatProgressBarModule
-   
+    MatProgressBarModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
     
     
   ],

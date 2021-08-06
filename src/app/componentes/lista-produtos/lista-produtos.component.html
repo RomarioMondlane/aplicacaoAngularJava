@@ -1,0 +1,31 @@
+<div class="divmae">
+    <div *ngIf="!dadosProduto" class="espera">
+        <mat-spinner  color="warn"></mat-spinner>
+
+
+    </div>
+    <div *ngFor="let p of dadosProduto" class="divOrganizacao">
+        <mat-card class="mat-card" >
+            <mat-card-title>{{p.nome}} </mat-card-title>
+            <mat-card-subtitle>{{p.categoria}}</mat-card-subtitle>
+            
+            <mat-card-content class="mat-card-content">
+                <img src='data:image/png;base64,{{p.picByte}}' width="200" height="200">
+                
+         </mat-card-content>
+        <div>
+            <p><b>Quantidade: </b> {{p.quantidade}}</p>
+            
+            <p><b>Preço: </b> {{p.preco}} </p> 
+       </div>
+         <div class="buttons">
+        
+            <button  mat-raised-button [disabled]="p.quantidade===0" color="warn" (click)="Comprar(p.codigo)" >Comprar</button> 
+            <button  mat-raised-button  color="basic" class="separar" (click)="descricao(p.descricao)" >Descrição</button> 
+        </div>
+            
+        </mat-card> 
+        
+        
+    </div>
+    </div>

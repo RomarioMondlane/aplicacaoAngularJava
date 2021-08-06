@@ -34,3 +34,15 @@
 
 
 }
+
+img{
+    border-radius: 5%;
+  }
+
+.espera{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+
+}

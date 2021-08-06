@@ -58,12 +58,12 @@
           
           <mat-error *ngIf="message" >{{ message }}</mat-error>
 
-          <div class="card mt-3">
+          <div >
             <ul
               class="list-group list-group-flush"
               *ngFor="let file of fileInfos | async"
             >
-              <li class="list-group-item">
+              <li >
                 <a href="{{ file.url }}">{{ file.name }}</a>
               </li>
             </ul>
@@ -71,7 +71,7 @@
           <button mat-raised-button [disabled]="!selectedFiles" (click)="upload()">
             Carregar imagem
           </button>
-        <button  mat-raised-button (click)="Criar()" color="primary" >Criar</button> 
+        <button  mat-raised-button  (click)="Criar()" color="primary" >Criar</button> 
 
 
 

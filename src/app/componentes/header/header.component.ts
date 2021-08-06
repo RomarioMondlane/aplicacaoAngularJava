@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { UserService } from 'src/app/componentes/user.service';
 import { Router} from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -20,6 +20,9 @@ export class HeaderComponent implements OnInit {
  safe:any;
  imageName: any;
  perfil:any;
+
+
+@Input() codig:any;
   url="http://localhost:7979/carregar";  
   constructor(private http:HttpClient,private userr:UserService,private rota:Router, private sanitizer: DomSanitizer) { }
 
@@ -34,32 +37,31 @@ export class HeaderComponent implements OnInit {
       .subscribe(
         res => {
          this.codigo=res;
-         console.log(this.codigo)
+         this.getImage(this.codigo);
         }
       );
    
-    this.getImage();
+    
     this.username=sessionStorage.getItem('nome');
- 
+          
   }
 
 
 
   }
-  getImage():void{
+  getImage(c:any):void{
     
     const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
       
-    this.http.get("http://localhost:7979/listarUserUnico?id=3",{headers   })
+    this.http.get("http://localhost:7979/listarUserUnico?id="+c,{headers   })
       .subscribe(
         res => {
-          console.log(res);
           this.retrieveResonse = res;
           this.base64Data = this.retrieveResonse.picByte;
           this.retrievedImage = 'data:image/png;base64,' + this.base64Data;
          
          this.safe=this.sanitizer.bypassSecurityTrustUrl(this.retrievedImage); 
-         console.log(this.safe);
+         
         }
       );
   }

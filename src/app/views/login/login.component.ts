@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router} from '@angular/router';
 import { User } from 'src/app/componentes/user.model';
 import { UserService } from 'src/app/componentes/user.service';
@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
         
     
   }
+ @Output() codigo:any;
  public sessao:any;
 
     constructor(private http:HttpClient,private userservice: UserService,private rota:Router) { }
@@ -40,7 +41,17 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('token', btoa(this.user.username +':'+this.user.password));
         sessionStorage.setItem('nome',this.user.username);
         this.sessao=window.sessionStorage.getItem('token');
-            this.userservice.showMessage("Sessão iniciada com sucesso!");
+        const headers = new HttpHeaders({Authorization:'Basic ' + sessionStorage.getItem('token')}) ;
+  
+        this.http.get("http://localhost:7979/codigo",{headers, responseType: 'text' as 'json'}).subscribe(data=>{
+        
+          this.codigo=data;
+          
+    
+        })
+         
+        
+        this.userservice.showMessage("Sessão iniciada com sucesso!");
             this.rota.navigate(["vender"]);
             }else{
               this.userservice.showMessage("Inicio de Sessão  falhou");
@@ -55,6 +66,9 @@ export class LoginComponent implements OnInit {
     }
    
    }
+   
+
+  
 
 getUser():void{
 

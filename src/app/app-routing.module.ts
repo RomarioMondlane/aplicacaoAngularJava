@@ -8,6 +8,7 @@ import {VenderComponent} from './views/vender/vender.component'
 import {ProdutoComponent} from'./views/produtos/produto/produto.component'
 import {CriarUserComponent} from './views/criar-user/criar-user.component'
 import {ListarPComponent } from './componentes/listar-p/listar-p.component'
+import {ListaProdutosComponent} from './componentes/lista-produtos/lista-produtos.component'
 
 
 
@@ -41,6 +42,11 @@ component: LoginComponent
   path:"carregar",
   component: 
   ListarPComponent
+},{
+  
+  path:"listarProdutos",
+  component:   ListaProdutosComponent
+
 }
 
 ];
